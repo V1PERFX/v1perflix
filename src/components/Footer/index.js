@@ -9,7 +9,7 @@ function Footer() {
         <FooterLogo src={LogoWhite} alt="V1PERFLIX logo" />
       </a>
       <p>
-        Feito com <span role="img" aria-label="coração">&#128151;</span> por
+        Feito com <span role="img" aria-label="coração">&#10084;&#65039;</span> por
         {' '}
         <a href="https://v1perfx.github.io/portfolio/">
           V1PERFX
