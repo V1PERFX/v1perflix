@@ -9,7 +9,13 @@ function Footer() {
         <FooterLogo src={LogoWhite} alt="V1PERFLIX logo" />
       </a>
       <p>
-        Orgulhosamente criado durante a
+        Feito com <span role="img" aria-label="coração">&#128151;</span> por
+        {' '}
+        <a href="https://v1perfx.github.io/portfolio/">
+          V1PERFX
+        </a>
+        <br />
+        Durante a
         {' '}
         <a href="https://www.alura.com.br/">
           Imersão React da Alura
