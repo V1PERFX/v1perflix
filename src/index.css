@@ -6,6 +6,7 @@
 :root {
   --primary: #f21b33;
   --black: #1e1e1e;
+  --blackScroll: #3a3a3a;
   --blackLighter: #9E9E9E;
   --grayLight: #F5F5F5;
   --grayMedium: #e5e5e5; 
@@ -22,4 +23,20 @@ body {
 
 a {
   color: inherit;
-} 
+}
+
+/* personalizar a barra em geral, aqui estou definindo 10px de largura para a barra vertical e 10px de altura para a barra horizontal */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+   
+/* aqui é para personalizar o fundo da barra */
+::-webkit-scrollbar-track {
+  background:var(--blackScroll);
+}
+   
+/* aqui é a alça da barra, que demonstra a altura que você está na página */
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+}
