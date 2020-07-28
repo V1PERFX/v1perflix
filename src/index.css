@@ -6,6 +6,7 @@
 :root {
   --primary: #f21b33;
   --black: #1e1e1e;
+  --blackPage: #141414;
   --blackScroll: #3a3a3a;
   --blackLighter: #9E9E9E;
   --grayLight: #F5F5F5;
@@ -23,6 +24,12 @@ body {
 
 a {
   color: inherit;
+}
+
+#root {
+  min-height: calc(100vh - var(--bodyPaddingTop));
+  display: flex;
+  flex-direction: column;
 }
 
 /* personalizar a barra em geral, aqui estou definindo 10px de largura para a barra vertical e 10px de altura para a barra horizontal */
