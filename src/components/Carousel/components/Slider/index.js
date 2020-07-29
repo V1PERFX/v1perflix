@@ -2,6 +2,8 @@
 import React from 'react';
 import SlickSlider from 'react-slick';
 import styled from 'styled-components';
+import { KeyboardArrowLeft } from '@styled-icons/material-twotone/KeyboardArrowLeft';
+import { KeyboardArrowRight } from '@styled-icons/material-twotone/KeyboardArrowRight';
 
 const Container = styled.ul`
   padding: 0;
@@ -12,19 +14,33 @@ const Container = styled.ul`
     top: 0;
     bottom: 0;
     margin: auto;
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
     transform: initial;
     &:before {
-      font-size: 30px;
+      font-size: 60px;
     }
   }
   
   .slick-prev {
+    top: -3px;
     left: 0;
+    height: 197px;
+    transition: background linear 200ms;
+    &:hover {
+      background: rgba(0,0,0,0.5);
+      border-top-left-radius: 7px;
+      border-bottom-left-radius: 7px;
+    }
   }
   .slick-next {
-    right: 16px;
+    top: -3px;
+    right: 0;
+    height: 197px;
+    transition: background linear 200ms; 
+    &:hover {
+      background: rgba(0,0,0,0.5);
+    }
   }
 `;
 
@@ -38,16 +54,31 @@ export const SliderItem = styled.li`
   }
 `;
 
+export const ArrowLeft = styled(KeyboardArrowLeft)`
+  color: var(--white);
+  &:hover {
+    color: var(--white)
+  }
+`;
+
+export const ArrowRight = styled(KeyboardArrowRight)`
+  color: var(--white);
+  &:hover {
+    color: var(--white)
+  }
+`;
 
 const Slider = ({ children }) => (
   <Container>
     <SlickSlider {...{
       dots: false,
-      infinite: false,
+      arrows: true,
+      infinite: true,
       speed: 400,
       centerMode: false,
       variableWidth: true,
-      adaptiveHeight: true,
+      nextArrow: <ArrowRight />,
+      prevArrow: <ArrowLeft />
     }}
     >
       {children}
