@@ -46,4 +46,5 @@ a {
 /* aqui é a alça da barra, que demonstra a altura que você está na página */
 ::-webkit-scrollbar-thumb {
   background: var(--primary);
+  border-radius: 5px;
 }
