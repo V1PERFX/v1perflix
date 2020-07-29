@@ -23,23 +23,23 @@ const Container = styled.ul`
   }
   
   .slick-prev {
-    top: -3px;
+    top: 0;
     left: 0;
     height: 197px;
     transition: background linear 200ms;
     &:hover {
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.6);
       border-top-left-radius: 7px;
       border-bottom-left-radius: 7px;
     }
   }
   .slick-next {
-    top: -3px;
+    top: 0;
     right: 0;
     height: 197px;
     transition: background linear 200ms; 
     &:hover {
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.6);
     }
   }
 `;
