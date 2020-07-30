@@ -29,8 +29,9 @@ function CadastroCategoria() {
   }
 
   useEffect(() => {
-    console.log('alo alo w brasil');
-    const URL_TOP = 'http://localhost:3001/categorias';
+    const URL_TOP = window.location.hostname.includes('localhost')
+      ? 'http://localhost:3001/categorias'
+      : ''; // se estiver usando o HEROKU usar a url que ele fornece
     fetch(URL_TOP).then(async (respostaDoServidor) => {
       const resposta = await respostaDoServidor.json();
       setCategorias([
