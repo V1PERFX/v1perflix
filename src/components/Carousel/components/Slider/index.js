@@ -26,6 +26,7 @@ const Container = styled.ul`
     top: 0;
     left: 0;
     height: 197px;
+    background: rgba(0,0,0,0.2);
     transition: background linear 200ms;
     &:hover {
       background: rgba(0,0,0,0.6);
@@ -37,6 +38,7 @@ const Container = styled.ul`
     top: 0;
     right: 0;
     height: 197px;
+    background: rgba(0,0,0,0.2);
     transition: background linear 200ms; 
     &:hover {
       background: rgba(0,0,0,0.6);
