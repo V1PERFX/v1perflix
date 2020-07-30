@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
+import Button from '../../../components/Button';
 
 function CadastroCategoria() {
   const valoresIniciais = {
     nome: '',
     descricao: '',
     cor: '#f21b33',
-  }
+  };
 
   const [categorias, setCategorias] = useState([]);
   const [values, setValues] = useState(valoresIniciais);
@@ -17,29 +18,61 @@ function CadastroCategoria() {
     setValues({
       ...values,
       [chave]: valor,
-    })
+    });
   }
 
   function handleChange(infosDoEvento) {
     setValue(
       infosDoEvento.target.getAttribute('name'),
-      infosDoEvento.target.value
+      infosDoEvento.target.value,
     );
   }
 
+  useEffect(() => {
+    console.log('alo alo w brasil');
+    const URL_TOP = 'http://localhost:3001/categorias';
+    fetch(URL_TOP).then(async (respostaDoServidor) => {
+      const resposta = await respostaDoServidor.json();
+      setCategorias([
+        ...resposta,
+      ]);
+    });
+    // setTimeout(() => {
+    //   setCategorias([
+    //     ...categorias,
+    //     {
+    //       id: 1,
+    //       nome: 'Front-End',
+    //       descricao: 'Uma categoria bacamudassa',
+    //       cor: '#f21b33',
+    //     },
+    //     {
+    //       id: 2,
+    //       nome: 'Back-End',
+    //       descricao: 'Outra categoria bacamudassa',
+    //       cor: '#f21b33',
+    //     },
+    //   ]);
+    // }, 4 * 1000);
+  }, []);
+
   return (
     <PageDefault>
-      <h1>Cadastro de Categoria: {values.nome}</h1>
+      <h1>
+        Cadastro de Categoria:
+        {values.nome}
+      </h1>
 
       <form onSubmit={function handleSubmit(infosDoEvento) {
         infosDoEvento.preventDefault();
         setCategorias([
           ...categorias,
-          values
+          values,
         ]);
 
         setValues(valoresIniciais);
-      }}>
+      }}
+      >
         <FormField
           label="Nome da Categoria"
           type="text"
@@ -50,23 +83,11 @@ function CadastroCategoria() {
 
         <FormField
           label="Descrição"
-          type="text"
+          type="textarea"
           name="descricao"
           value={values.descricao}
           onChange={handleChange}
         />
-
-        {/* <div>
-          <label>
-            Descrição:
-          <textarea
-              type="text"
-              value={values.descricao}
-              name="descricao"
-              onChange={handleChange}
-            />
-          </label>
-        </div> */}
 
         <FormField
           label="Cor"
@@ -75,34 +96,25 @@ function CadastroCategoria() {
           value={values.cor}
           onChange={handleChange}
         />
-        
-        {/* <div>
-          <label>
-            Cor:
-          <input
-              type="color"
-              value={values.cor}
-              name="cor"
-              onChange={handleChange}
-            />
-          </label>
-        </div> */}
 
-        <button>
+        <Button>
           Cadastrar
-        </button>
+        </Button>
       </form>
 
-      <ul>
-        {categorias.map((categoria, indice) => {
-          return (
-            <li key={`${categoria}${indice}`}>
-              {categoria.nome}
-            </li>
-          );
-        })}
-      </ul>
+      {categorias.length === 0 && (
+        <div>
+          Carregando...
+        </div>
+      )}
 
+      <ul>
+        {categorias.map((categoria) => (
+          <li key={`${categoria.nome}`}>
+            {categoria.nome}
+          </li>
+        ))}
+      </ul>
 
       <Link to="/">
         Ir para home

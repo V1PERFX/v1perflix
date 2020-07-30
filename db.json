@@ -1,0 +1,16 @@
+{
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "Front-End",
+      "descricao": "Uma categoria bacamudassa",
+      "cor": "#f21b33"
+    },
+    {
+      "id": 2,
+      "nome": "Back-End",
+      "descricao": "Outra categoria bacamudassa",
+      "cor": "#f21b33"
+    }
+  ]
+}
