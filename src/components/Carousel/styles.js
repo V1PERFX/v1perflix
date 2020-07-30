@@ -3,8 +3,7 @@ import styled from 'styled-components';
 export const Title = styled.h3`
   font-style: normal;
   font-weight: normal;
-  font-size: 35px;
-  line-height: 1;
+  font-size: 30px;
   margin-bottom: 16px;
   margin-left: 5%;
   display: inline-block;
@@ -30,7 +29,7 @@ export const ExtraLink = styled.a`
   @media (max-width: 800px) {
     display: block;
     margin-bottom: 16px;
-    margin-left: 0;
+    margin-left: 5%;
   }
 `;
 
